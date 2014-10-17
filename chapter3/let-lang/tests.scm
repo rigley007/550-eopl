@@ -56,7 +56,12 @@
       (check-shadowing-in-rhs "let x = 3 in let x = -(x,1) in x" 2)
       
       ;;set test
-      (simple-set-test "set {3}" (list 3))
+      (set-test-1 "set {2}" (list 2))
+      (set-test-2 "set {2,3,4,5,6,7}" (list 2 3 4 5 6 7))
+      (set-test-3 "let x = 3 in set {2,3,4,-(x,1),-(x,3)}" (list 2 3 4 2 0))
+      (set-test-4 "set {f}" error)
+      (set-test-5 "set {f,ff,aa,ss}" error)
+      (set-test-6 "if zero?(-(11,11)) then let x = 3 in set {2,3,4,-(x,1),-(x,3)} else 4" (list 2 3 4 2 0))
 
       ))
   )
