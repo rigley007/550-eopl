@@ -79,54 +79,9 @@ let fix =  proc (f)
             let d = proc (x) proc (z) ((f (x x)) z)
             in proc (n) ((f (d d)) n)
 in let
-    fib = proc (f) proc(x) if zero?(-(x,1)) then 0 else if zero?(-(x,2)) then 1 else -((f -(x,1)),-(0,(f -(x,2))))
+    fib = proc (f) proc(x) if zero?(x) then 0 else -((f -(x,1)),-4)
 in let fibonacci = (fix fib)
-   in (fibonacci 1)" 0)
-       
-       (fibonacci-2 "
-let fix =  proc (f)
-            let d = proc (x) proc (z) ((f (x x)) z)
-            in proc (n) ((f (d d)) n)
-in let
-    fib = proc (f) proc(x) if zero?(-(x,1)) then 0 else if zero?(-(x,2)) then 1 else -((f -(x,1)),-(0,(f -(x,2))))
-in let fibonacci = (fix fib)
-   in (fibonacci 2)" 1)
-       
-       (fibonacci-3 "
-let fix =  proc (f)
-            let d = proc (x) proc (z) ((f (x x)) z)
-            in proc (n) ((f (d d)) n)
-in let
-    fib = proc (f) proc(x) if zero?(-(x,1)) then 0 else if zero?(-(x,2)) then 1 else -((f -(x,1)),-(0,(f -(x,2))))
-in let fibonacci = (fix fib)
-   in (fibonacci 3)" 1)
-       
-       (fibonacci-4 "
-let fix =  proc (f)
-            let d = proc (x) proc (z) ((f (x x)) z)
-            in proc (n) ((f (d d)) n)
-in let
-    fib = proc (f) proc(x) if zero?(-(x,1)) then 0 else if zero?(-(x,2)) then 1 else -((f -(x,1)),-(0,(f -(x,2))))
-in let fibonacci = (fix fib)
-   in (fibonacci 4)" 2)
-       
-       (fibonacci-5 "
-let fix =  proc (f)
-            let d = proc (x) proc (z) ((f (x x)) z)
-            in proc (n) ((f (d d)) n)
-in let
-    fib = proc (f) proc(x) if zero?(-(x,1)) then 0 else if zero?(-(x,2)) then 1 else -((f -(x,1)),-(0,(f -(x,2))))
-in let fibonacci = (fix fib)
-   in (fibonacci 5)" 3)
-       
-       (fibonacci-6 "
-let fix =  proc (f)
-            let d = proc (x) proc (z) ((f (x x)) z)
-            in proc (n) ((f (d d)) n)
-in let
-    fib = proc (f) proc(x) if zero?(-(x,1)) then 0 else if zero?(-(x,2)) then 1 else -((f -(x,1)),-(0,(f -(x,2))))
-in let fibonacci = (fix fib)
-   in (fibonacci 6)" 5)
+   in (fibonacci 3)" 12)
        
       ))
   )
