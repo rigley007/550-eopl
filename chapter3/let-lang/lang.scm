@@ -43,7 +43,7 @@
        let-exp)
       
       (expression
-       ("set" "{" (separated-list expression ",") "}")
+       ("set" "{" expression "}")
        set-exp)
       
       ))

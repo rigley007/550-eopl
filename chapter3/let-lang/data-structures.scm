@@ -39,7 +39,7 @@
     (lambda (v)
       (cases expval v
 	(list-val (s-list) s-list)
-	(else (expval-extractor-error 'list v)))))
+	(else (eopl:printf "wtf ~%~%")))))
 
   (define expval-extractor-error
     (lambda (variant value)

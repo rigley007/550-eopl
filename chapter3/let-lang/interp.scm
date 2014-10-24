@@ -21,12 +21,6 @@
       (cases program pgm
         (a-program (exp1)
           (value-of exp1 (init-env))))))
-  ;; used as map for the list
-  (define apply-each-element
-    (lambda (env)
-      (lambda (element)
-        (value-of element env))))
-  
 
   ;; value-of : Exp * Env -> ExpVal
   ;; Page: 71
@@ -72,7 +66,10 @@
         
         ;set-exp
         (set-exp (exp1)
-                 (list-val (map (apply-each-element env) exp1)))
+                 (eopl:printf "exp1 ~a~%" exp1)
+                 (let ((val1 (value-of exp1 env)))
+                   (eopl:printf "listval ~a~%" (list-val (list val1)))
+                 (list-val (list val1))))
 
         )))
 

@@ -28,7 +28,6 @@
     (lambda (string)
       (value-of-program (scan&parse string))))
   
-  
   ;; run-all : () -> unspecified
   
   ;; runs all the tests in test-list, comparing the results with
@@ -40,14 +39,18 @@
   
   (define equal-answer?
     (lambda (ans correct-ans)
+      (eopl:printf "ans ~a~%" ans)
+      (eopl:printf "correct-ans ~a~%" correct-ans)
+      (eopl:printf "expval-correct-ans ~a~%" (sloppy->expval correct-ans))
       (equal? ans (sloppy->expval correct-ans))))
   
   (define sloppy->expval 
     (lambda (sloppy-val)
+      (eopl:printf "sloppy-val ~a~%" sloppy-val)
       (cond
         ((number? sloppy-val) (num-val sloppy-val))
         ((boolean? sloppy-val) (bool-val sloppy-val))
-        ((list? sloppy-val) (list-val (map (lambda (element) (num-val element)) (cdr sloppy-val))))
+        ((list? sloppy-val) (list-val (list (num-val (cadr sloppy-val)))))
         (else
          (eopl:error 'sloppy->expval 
                      "Can't convert sloppy value to expval: ~s"
